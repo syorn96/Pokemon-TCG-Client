@@ -5,6 +5,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 export default function PokemonCard() {
     const [pokemonCard, setPokemonCard] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
+    const [comment, setComment] = useState([])
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -15,6 +16,8 @@ export default function PokemonCard() {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/pokemoncards/${id}`)
                 console.log(response.data)
                 setPokemonCard(response.data.pokemonCard)
+                setComment(response.data.comments)
+                console.log(comment)
             }catch(err){
                 console.warn(err)
                 if (err.response) {
@@ -36,7 +39,11 @@ export default function PokemonCard() {
                 }
         }
     }
-
+    const comments = comment.map(comment => {
+        return(
+        <p>{comment.content}</p>
+        )
+    })
     return (
       <div>
         <h1>Pokemon Card Details</h1>
@@ -51,6 +58,8 @@ export default function PokemonCard() {
                 <Link to={`/pokemoncards/${id}/edit`}><button>Edit</button></Link> {' | '}
                 <button onClick={handleDelete}>Delete</button>
             </div>
+            <h3>Comments</h3>
+            {comments}
       </div>
     );
   }
