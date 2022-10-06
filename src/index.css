@@ -5,8 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-image: url('https://www.gamepur.com/wp-content/uploads/2022/01/featured-pokemon-legends-arceus-what-do-space-time-distortions-do-900x506-1.jpg');
+  background-size: cover;
+  background-repeat: none;
+  color: white;
 }
-
+a {
+  color: white;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
+import Navbar from './components/partials/NavBar';
+
+import Home from './components/routes/Home';
+import PokemonCards from './components/routes/PokemonCards';
+import PokemonCard from './components/routes/PokemonCard';
+import NewPokemonCard from './components/routes/NewPokemonCard';
+import EditPokemonCard from './components/routes/EditPokemonCard';
+
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/pokemoncards' element={<PokemonCards />}></Route>
+          <Route path='/pokemoncards/:id' element={<PokemonCard />}></Route>
+          <Route path='pokemoncards/new' element={<NewPokemonCard />}></Route>
+          <Route path='/pokemoncards/:id/edit' element={<EditPokemonCard />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
 
-export default App;
+
