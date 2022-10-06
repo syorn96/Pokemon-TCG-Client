@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Pocket Monster TCG Collection Client
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Wireframe
+![wireframe](./public/Wireframe.png)
 
 ## Available Scripts
 
