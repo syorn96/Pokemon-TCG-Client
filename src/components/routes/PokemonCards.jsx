@@ -25,15 +25,15 @@ export default function PokemonCards() {
 
     const pokemonCardLinks = pokemonCards.map(card => {
         return (
-            <div key={card.id}  style={{margin: '15px'}}>
+            <div key={card._id}  style={{margin: '20px'}}>
                 
-                <Link to={`/pokemoncards/${card.id}`}><img src={card.img_Url} height='200px'></img></Link>
+                <Link to={`/pokemoncards/${card._id}`}><img src={card.img_Url} height='200px'></img></Link>
             </div>
         )
     })
     return (
       <div>
-        <h1>Pokemon Virtual Trading Collection</h1>
+        <h1>Pokemon Virtual Card Collection</h1>
         <div  style={{display: 'flex'}}>
         {pokemonCardLinks}
         </div>
